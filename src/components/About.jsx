@@ -1,13 +1,13 @@
 function About() {
   return (
-    <section id="about" className="border-b border-slate-800 bg-slate-950">
+    <section id="about" className="border-b border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-6xl px-4 py-12 space-y-8">
         <h2 className="text-xl md:text-2xl font-semibold">
           About Bisbee Technology
         </h2>
 
         <div className="grid gap-8 md:grid-cols-2">
-          <div className="space-y-4 text-sm md:text-base text-slate-300">
+          <div className="space-y-4 text-sm md:text-base text-slate-600">
             <p>
               Bisbee Technology India Pvt Ltd is an industrial technology
               startup dedicated to transforming India's insulated construction
@@ -32,20 +32,20 @@ function About() {
           </div>
 
           <div className="space-y-5">
-            <div className="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+            <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
               <h3 className="text-sm font-semibold text-emerald-300">
                 Mission
               </h3>
-              <p className="mt-2 text-sm text-slate-300">
+              <p className="mt-2 text-sm text-slate-600">
                 To deliver high-quality, customizable PU/PIR panels that enhance
                 energy efficiency, support sustainable growth, and meet diverse
                 industrial needs through innovation and precision.
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
+            <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
               <h3 className="text-sm font-semibold text-emerald-300">Vision</h3>
-              <p className="mt-2 text-sm text-slate-300">
+              <p className="mt-2 text-sm text-slate-600">
                 To lead India’s insulated infrastructure revolution with
                 world-class, energy-efficient sandwich panels manufactured using
                 advanced continuous production technology.

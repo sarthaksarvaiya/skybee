@@ -1,11 +1,11 @@
 function Market() {
   return (
-    <section id="market" className="border-b border-slate-800 bg-slate-950/90">
+    <section id="market" className="border-b border-slate-200 bg-slate-50/90">
       <div className="mx-auto max-w-6xl px-4 py-12 space-y-8">
         <h2 className="text-xl md:text-2xl font-semibold">Market & Clients</h2>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="space-y-4 rounded-xl border border-slate-800 bg-slate-900/70 p-4 text-sm text-slate-300">
+          <div className="space-y-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm text-sm text-slate-600">
             <h3 className="text-sm font-semibold text-emerald-300">
               India Sandwich Panel Market
             </h3>
@@ -27,7 +27,7 @@ function Market() {
             </p>
           </div>
 
-          <div className="space-y-4 rounded-xl border border-slate-800 bg-slate-900/70 p-4 text-sm text-slate-300">
+          <div className="space-y-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm text-sm text-slate-600">
             <h3 className="text-sm font-semibold text-emerald-300">
               Target Customers
             </h3>

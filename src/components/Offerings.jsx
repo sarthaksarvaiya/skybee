@@ -23,7 +23,7 @@ function Offerings() {
   ];
 
   return (
-    <section id="offerings" className="border-b border-slate-800 bg-slate-950">
+    <section id="offerings" className="border-b border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-6xl px-4 py-12 space-y-8">
         <h2 className="text-xl md:text-2xl font-semibold">Our Offerings</h2>
 
@@ -31,12 +31,12 @@ function Offerings() {
           {items.map((item) => (
             <div
               key={item.title}
-              className="rounded-xl border border-slate-800 bg-slate-900/70 p-4"
+              className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
             >
               <h3 className="text-sm font-semibold text-emerald-300">
                 {item.title}
               </h3>
-              <p className="mt-2 text-xs md:text-sm text-slate-300">
+              <p className="mt-2 text-xs md:text-sm text-slate-600">
                 {item.desc}
               </p>
             </div>

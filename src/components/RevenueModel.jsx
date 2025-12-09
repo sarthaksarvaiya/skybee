@@ -23,7 +23,7 @@ function RevenueModel() {
   ];
 
   return (
-    <section id="revenue" className="border-b border-slate-800 bg-slate-950/90">
+    <section id="revenue" className="border-b border-slate-200 bg-slate-50/90">
       <div className="mx-auto max-w-6xl px-4 py-12 space-y-8">
         <h2 className="text-xl md:text-2xl font-semibold">Revenue Model</h2>
 
@@ -31,7 +31,7 @@ function RevenueModel() {
           {streams.map((stream) => (
             <div
               key={stream.title}
-              className="rounded-xl border border-slate-800 bg-slate-900/70 p-4 text-sm text-slate-300"
+              className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm text-sm text-slate-600"
             >
               <h3 className="text-sm font-semibold text-emerald-300">
                 {stream.title}
@@ -41,7 +41,7 @@ function RevenueModel() {
           ))}
         </div>
 
-        <div className="rounded-xl border border-slate-800 bg-slate-900/70 p-4 text-xs md:text-sm text-slate-300">
+        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm text-xs md:text-sm text-slate-600">
           <h3 className="text-sm font-semibold text-emerald-300">
             Fund Utilization Snapshot (₹ 20,00,000)
           </h3>

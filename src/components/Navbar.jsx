@@ -1,37 +1,36 @@
 import { useState } from "react";
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo.svg"; // 👈 put logo.svg in src/assets/
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { href: "#about", label: "About" },
-    { href: "#problems", label: "Problems & Solutions" },
-    { href: "#offerings", label: "Offerings" },
-    { href: "#market", label: "Market" },
-    { href: "#impact", label: "Social Impact" },
-    { href: "#revenue", label: "Revenue Model" },
-    { href: "#team", label: "Team" },
-    { href: "#contact", label: "Contact" },
+    { href: "/#hero", label: "Home" },
+    { href: "/#about", label: "About" },
+    { href: "/#products", label: "products" },
+    // { href: "#problems", label: "Problems & Solutions" },
+    // { href: "#offerings", label: "Offerings" },
+    // { href: "#market", label: "Market" },
+    // { href: "#impact", label: "Social Impact" },
+    // { href: "#revenue", label: "Revenue Model" },
+    // { href: "#team", label: "Team" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+    <header className="fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-3" onClick={closeMenu}>
-          {/* SVG Logo */}
-          <img src={logo} alt="Bisbee Technology Logo" className="h-8 w-auto" />
-
-          {/* Company Name */}
+          <img src={logo} alt="Bisbee Technology Logo" className="h-9 w-auto" />
           <div className="flex flex-col">
-            <p className="text-sm font-semibold leading-tight">
+            <p className="text-sm font-semibold text-slate-800">
               Bisbee Technology India Pvt Ltd
             </p>
-            <p className="text-[10px] text-slate-400 leading-tight">
+            <p className="text-[10px] text-slate-500">
               Innovating insulation with precision panels
             </p>
           </div>
@@ -43,7 +42,7 @@ function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-slate-300 hover:text-emerald-400 transition-colors"
+              className="text-slate-600 hover:text-sky-700 transition-colors"
             >
               {link.label}
             </a>
@@ -52,7 +51,7 @@ function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden inline-flex items-center justify-center rounded-md border border-slate-700 px-2 py-1 text-slate-200"
+          className="md:hidden inline-flex items-center justify-center rounded-md border border-slate-300 px-2 py-1 text-slate-700 bg-white"
           onClick={toggleMenu}
           aria-label="Toggle navigation"
         >
@@ -94,14 +93,14 @@ function Navbar() {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-slate-950/95 border-t border-slate-800">
-          <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-2 text-sm">
+        <div className="md:hidden bg-white/95 border-t border-slate-200">
+          <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-1 text-sm">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className="block rounded-md px-2 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-300 transition-colors"
+                className="block rounded-md px-2 py-2 text-slate-700 hover:bg-slate-100 hover:text-sky-700 transition-colors"
               >
                 {link.label}
               </a>
