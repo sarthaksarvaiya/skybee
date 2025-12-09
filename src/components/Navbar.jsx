@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "../assets/logo.svg";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,11 +24,7 @@ function Navbar() {
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-3" onClick={closeMenu}>
           {/* SVG Logo */}
-          <img
-            src="/src/assets/logo.svg"
-            alt="Bisbee Technology Logo"
-            className="h-8 w-auto"
-          />
+          <img src={logo} alt="Bisbee Technology Logo" className="h-8 w-auto" />
 
           {/* Company Name */}
           <div className="flex flex-col">
