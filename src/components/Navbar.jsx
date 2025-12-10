@@ -7,7 +7,7 @@ function Navbar() {
   const links = [
     { href: "/#hero", label: "Home" },
     { href: "/#about", label: "About" },
-    { href: "/#products", label: "products" },
+    { href: "/#product", label: "products" },
     { href: "/#contact", label: "Contact" },
   ];
 

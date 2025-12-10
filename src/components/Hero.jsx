@@ -53,8 +53,8 @@ export default function Hero() {
     <section id="hero" className="relative">
       {/* Top full-viewport image slider — height = viewport minus navbar */}
       <div
-        className="w-full overflow-hidden"
-        style={{ height: `calc(100vh - ${NAV_HEIGHT}px)` }}
+        className="w-full overflow-hidden h-auto md:h-[calc(100vh-var(--nav-height))]"
+        style={{ "--nav-height": `${NAV_HEIGHT}px` }}
       >
         <Swiper
           modules={[Autoplay, EffectFade]}
@@ -71,10 +71,9 @@ export default function Hero() {
                   src={src}
                   alt={`hero-${idx}`}
                   loading="lazy"
-                  onLoad={() => setImageLoaded(true)}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain md:object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-sky-900/55 via-sky-700/25 to-transparent mix-blend-multiply" />
+                <div className="absolute inset-0 bg-linear-to-tr from-sky-900/55 via-sky-700/25 to-transparent mix-blend-multiply" />
               </div>
             </SwiperSlide>
           ))}
