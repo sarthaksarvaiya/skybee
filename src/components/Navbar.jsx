@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/logo.svg"; // 👈 put logo.svg in src/assets/
+import logo from "../assets/logo.svg";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,12 +8,6 @@ function Navbar() {
     { href: "/#hero", label: "Home" },
     { href: "/#about", label: "About" },
     { href: "/#products", label: "products" },
-    // { href: "#problems", label: "Problems & Solutions" },
-    // { href: "#offerings", label: "Offerings" },
-    // { href: "#market", label: "Market" },
-    // { href: "#impact", label: "Social Impact" },
-    // { href: "#revenue", label: "Revenue Model" },
-    // { href: "#team", label: "Team" },
     { href: "/#contact", label: "Contact" },
   ];
 
