@@ -5,9 +5,6 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-// import img1 from "../assets/hero-1.jpg";
-// import img2 from "../assets/hero-2.jpg";
-// import img3 from "../assets/hero-3.jpg";
 import img4 from "../assets/hero-4.jpg";
 import img5 from "../assets/hero-5.jpg";
 
@@ -54,7 +51,7 @@ export default function Hero() {
     <section id="hero" className="relative">
       {/* Top full-viewport image slider — height = viewport minus navbar */}
       <div
-        className="w-full overflow-hidden h-auto md:h-[calc(100vh-var(--nav-height))]"
+        className="w-full overflow-hidden h-[calc(100vh-var(--nav-height))]"
         style={{ "--nav-height": `${NAV_HEIGHT}px` }}
       >
         <Swiper
@@ -72,7 +69,7 @@ export default function Hero() {
                   src={src}
                   alt={`hero-${idx}`}
                   loading="lazy"
-                  className="h-full w-full object-contain md:object-cover"
+                  className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-linear-to-tr from-sky-900/55 via-sky-700/25 to-transparent mix-blend-multiply" />
               </div>
@@ -113,6 +110,112 @@ export default function Hero() {
               </svg>
             </div>
           </a>
+        </div>
+      </div>
+
+      {/* Feature Highlights */}
+      <div className="bg-white border-t border-b border-slate-200 py-12">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+            {/* 1. Durability */}
+            <div className="group flex flex-col items-center text-center transition-all cursor-pointer">
+              <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-sky-100 text-sky-700 shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z" />
+                </svg>
+              </div>
+              <p className="mt-3 text-sm font-semibold text-slate-800">
+                Durability
+              </p>
+            </div>
+
+            {/* 2. Exterior Metal Skin */}
+            <div className="group flex flex-col items-center text-center transition-all cursor-pointer">
+              <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-sky-100 text-sky-700 shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg>
+              </div>
+              <p className="mt-3 text-sm font-semibold text-slate-800">
+                Exterior Metal Skin
+              </p>
+            </div>
+
+            {/* 3. Interior Metal Skin */}
+            <div className="group flex flex-col items-center text-center transition-all cursor-pointer">
+              <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-sky-100 text-sky-700 shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M4 6h16v12H4z" />
+                  <path d="M8 6v12M16 6v12" />
+                </svg>
+              </div>
+              <p className="mt-3 text-sm font-semibold text-slate-800">
+                Interior Metal Skin
+              </p>
+            </div>
+
+            {/* 4. Airtight System */}
+            <div className="group flex flex-col items-center text-center transition-all cursor-pointer">
+              <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-sky-100 text-sky-700 shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M4 4h16v16H4z" />
+                  <path d="M8 12h8M12 8v8" />
+                </svg>
+              </div>
+              <p className="mt-3 text-sm font-semibold text-slate-800">
+                Airtight System
+              </p>
+            </div>
+
+            {/* 5. Coatings Superiority */}
+            <div className="group flex flex-col items-center text-center transition-all cursor-pointer">
+              <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-sky-100 text-sky-700 shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2v20" />
+                  <path d="M5 7h14M5 12h14M5 17h14" />
+                </svg>
+              </div>
+              <p className="mt-3 text-sm font-semibold text-slate-800">
+                Coatings Superiority
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -182,90 +285,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-
-          {/* RIGHT: image slice / or additional content */}
-          {/* <div className="flex-1"> */}
-          {/* <div className="relative h-60 sm:h-72 md:h-80 lg:h-96">
-              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-slate-200">
-                <Swiper
-                  modules={[Autoplay, EffectFade]}
-                  effect="fade"
-                  loop
-                  autoplay={{ delay: 3500, disableOnInteraction: false }}
-                  speed={800}
-                  className="h-full w-full"
-                >
-                  {heroImages.map((src, index) => (
-                    <SwiperSlide key={index}>
-                      <div className="relative h-full w-full">
-                        <img
-                          src={src}
-                          alt={`panel-${index}`}
-                          loading="lazy"
-                          className="h-full w-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-tr from-sky-900/60 via-sky-700/35 to-transparent mix-blend-multiply" />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-
-                <div className="absolute top-4 left-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-medium text-sky-800 shadow-sm">
-                  PU / PIR SANDWICH PANELS
-                </div>
-
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="rounded-2xl bg-white/95 px-4 py-3 text-[11px] sm:text-xs text-slate-700 shadow-md backdrop-blur">
-                    <p className="text-[10px] uppercase tracking-wide text-sky-700 font-semibold">
-                      Why Bisbee Technology
-                    </p>
-                    <div className="mt-2 grid grid-cols-2 gap-3">
-                      <div>
-                        <p className="text-slate-500">Production</p>
-                        <p className="font-semibold text-slate-900">
-                          Automated continuous line
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-slate-500">Performance</p>
-                        <p className="font-semibold text-slate-900">
-                          Superior thermal efficiency
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-slate-500">Applications</p>
-                        <p className="font-semibold text-slate-900">
-                          Cold chain & infrastructure
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-slate-500">USP</p>
-                        <p className="font-semibold text-slate-900">
-                          Consistent quality at scale
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-
-          {/* Mobile stats below image */}
-          {/* <div className="mt-4 grid grid-cols-3 gap-3 text-[11px] text-slate-700 md:hidden">
-              <div className="rounded-lg bg-white border border-slate-200 px-3 py-2">
-                <p className="text-slate-500">Technology</p>
-                <p className="font-semibold text-slate-900">Automated Line</p>
-              </div>
-              <div className="rounded-lg bg-white border border-slate-200 px-3 py-2">
-                <p className="text-slate-500">Sectors</p>
-                <p className="font-semibold text-slate-900">Cold & Pharma</p>
-              </div>
-              <div className="rounded-lg bg-white border border-slate-200 px-3 py-2">
-                <p className="text-slate-500">Advantage</p>
-                <p className="font-semibold text-slate-900">Energy Saving</p>
-              </div>
-            </div> */}
-          {/* </div> */}
         </div>
       </div>
     </section>
