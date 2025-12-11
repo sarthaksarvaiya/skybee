@@ -1,9 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade, Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 
 import img1 from "../assets/product-1.jpg";
@@ -11,103 +10,171 @@ import img2 from "../assets/product-2.jpg";
 import img3 from "../assets/product-3.jpg";
 import img4 from "../assets/product-4.jpg";
 
-const slides = [img1, img2, img3, img4];
-
 export default function Product() {
   return (
     <section id="product" className="w-full">
-      <div className="w-full">
+      {/* 📱 MOBILE – single swiper */}
+      <div className="w-full md:hidden">
         <Swiper
-          modules={[Autoplay, EffectFade, Navigation]}
-          effect="fade"
+          modules={[Autoplay, Navigation]}
           loop
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          autoplay={{ delay: 3000 }}
           navigation={true}
-          speed={800}
           className="w-full"
-          style={{
-            height: "60vh",
-            background: "linear-gradient(180deg,#f8fafc,#eef2f6)",
-          }}
+          style={{ height: "60vh" }}
         >
-          {slides.map((src, i) => (
+          {[img1, img2, img3, img4].map((img, i) => (
             <SwiperSlide key={i}>
-              {/* Slide container: consistent height */}
-              <div className="w-full h-full relative flex items-center justify-center overflow-hidden">
-                {/* 1) Full-bleed blurred background (cover) to give consistent canvas */}
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 transform-gpu scale-105 filter blur-sm opacity-80"
-                  style={{
-                    backgroundImage: `url(${src})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center center",
-                    backgroundRepeat: "no-repeat",
-                  }}
+              <div className="w-full h-full flex items-center justify-center">
+                <img
+                  src={img}
+                  alt="slide"
+                  className="max-w-full max-h-full object-contain p-4"
                 />
-
-                {/* 2) Soft overlay to reduce contrast between bg and image */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-white/20 mix-blend-overlay pointer-events-none" />
-
-                {/* 3) Centered image that preserves full content (no crop) */}
-                <div className="relative z-10 flex items-center justify-center p-6 w-full h-full">
-                  <img
-                    src={src}
-                    alt={`product-${i}`}
-                    loading="lazy"
-                    className="max-w-full max-h-full object-contain block mx-auto shadow-lg"
-                    style={{
-                      // optional subtle white card background for images with white canvas
-                      backgroundColor: "rgba(255,255,255,0.85)",
-                      padding: "18px",
-                      borderRadius: "12px",
-                    }}
-                  />
-                </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
 
-      <style>{`
-        /* responsive heights */
-        @media (min-width: 768px) {
-          .swiper { height: 70vh !important; }
-          .swiper .swiper-wrapper { height: 70vh !important; }
-          .swiper .swiper-slide > div { height: 70vh !important; }
-        }
-        @media (min-width: 1024px) {
-          .swiper { height: 85vh !important; }
-          .swiper .swiper-wrapper { height: 85vh !important; }
-          .swiper .swiper-slide > div { height: 85vh !important; }
-        }
+      {/* 🖥️ DESKTOP – Split two swipers side-by-side */}
+      <div className="hidden md:flex w-full gap-6 px-6 py-8">
+        {/* LEFT – Swiper 1 & 2 */}
+        <div className="w-1/2">
+          <Swiper
+            modules={[Autoplay, Navigation]}
+            loop
+            autoplay={{ delay: 3500 }}
+            navigation={true}
+            className="w-full h-full rounded-xl overflow-hidden shadow-lg bg-white"
+            style={{ height: "70vh" }}
+          >
+            {[img1, img2].map((img, i) => (
+              <SwiperSlide key={i}>
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src={img}
+                    alt="product"
+                    className="max-w-full max-h-full object-contain p-6"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
 
-        /* nav arrow styling */
-        .swiper-button-prev,
-        .swiper-button-next {
-          color: rgba(255,255,255,0.95);
-          width: 48px;
-          height: 48px;
-          border-radius: 9999px;
-          background: rgba(0,0,0,0.28);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 6px 20px rgba(2,6,23,0.18);
-        }
-        @media (min-width: 768px) {
-          .swiper-button-prev { left: 18px; }
-          .swiper-button-next { right: 18px; }
-        }
-        @media (min-width: 1024px) {
-          .swiper-button-prev { left: 36px; }
-          .swiper-button-next { right: 36px; }
-        }
-        .swiper-button-prev:after,
-        .swiper-button-next:after {
-          font-size: 18px;
-        }
+        {/* RIGHT – Swiper 3 & 4 */}
+        <div className="w-1/2">
+          <Swiper
+            modules={[Autoplay, Navigation]}
+            loop
+            autoplay={{ delay: 3500 }}
+            navigation={true}
+            className="w-full h-full rounded-xl overflow-hidden shadow-lg bg-white"
+            style={{ height: "70vh" }}
+          >
+            {[img3, img4].map((img, i) => (
+              <SwiperSlide key={i}>
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src={img}
+                    alt="product"
+                    className="max-w-full max-h-full object-contain p-6"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
+      {/* Product Details Tables */}
+      <div className="w-full px-4 md:px-16 py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* LEFT TABLE */}
+        <table className="w-full border border-gray-300 text-left">
+          <tbody>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Infill Material</th>
+              <td className="px-4 py-2">PUR/PIR & Rockwool panel</td>
+            </tr>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">
+                Outer & Inner Skin Sheet
+              </th>
+              <td className="px-4 py-2">
+                PPGI, PPGL, BGL, Stainless Steel, Aluminium, Craft Paper
+              </td>
+            </tr>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Thickness</th>
+              <td className="px-4 py-2">0.35mm to 0.8mm</td>
+            </tr>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Effective Width</th>
+              <td className="px-4 py-2">1000mm</td>
+            </tr>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Overall Width</th>
+              <td className="px-4 py-2">1075mm</td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* RIGHT TABLE */}
+        <table className="w-full border border-gray-300 text-left">
+          <tbody>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Length</th>
+              <td className="px-4 py-2">
+                2 meters to 16 meters (customizable)
+              </td>
+            </tr>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Available Thickness</th>
+              <td className="px-4 py-2">
+                40, 50, 60, 80, 100, 120, 150, 200 mm
+              </td>
+            </tr>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Density</th>
+              <td className="px-4 py-2">PUR 40 ± 2 kg/m³, PIR 45 ± 2 kg/m³</td>
+            </tr>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Sheet Profile</th>
+              <td className="px-4 py-2">Baby Rib, Plain</td>
+            </tr>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Covered Width</th>
+              <td className="px-4 py-2">1118mm</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <style>{`
+      .swiper-button-prev,
+      .swiper-button-next {
+        color: #ffffff;
+        width: 36px;
+        height: 40px;
+        border-radius: 6px;
+        background: #9ca3af;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.25s ease, background 0.25s ease;
+        z-index: 20;
+      }
+      .swiper-button-prev:hover,
+      .swiper-button-next:hover {
+        transform: scale(1.1);
+        background: #6b7280;
+      }
+      .swiper-button-prev:after,
+      .swiper-button-next:after {
+        font-size: 14px;
+        font-weight: 700;
+      }
       `}</style>
     </section>
   );

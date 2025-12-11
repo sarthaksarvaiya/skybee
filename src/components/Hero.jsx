@@ -17,7 +17,6 @@ export default function Hero() {
   const contentRef = useRef(null);
   const [contentVisible, setContentVisible] = useState(false);
 
-  // Reveal content when it enters viewport
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
@@ -38,7 +37,6 @@ export default function Hero() {
     return () => observer.disconnect();
   }, []);
 
-  // Scroll handler for the "Scroll" button/link — offsets for fixed navbar
   const scrollToContent = (e) => {
     e.preventDefault();
     const el = contentRef.current;
@@ -47,11 +45,81 @@ export default function Hero() {
     window.scrollTo({ top, behavior: "smooth" });
   };
 
+  /* icons and Feature component unchanged... (kept as in your original) */
+  const ShieldIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-7 w-7"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z" />
+    </svg>
+  );
+  const ExteriorIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-7 w-7"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M3 9h18M9 21V9" />
+    </svg>
+  );
+  const InteriorIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-7 w-7"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path d="M4 6h16v12H4z" />
+      <path d="M8 6v12M16 6v12" />
+    </svg>
+  );
+  const AirtightIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-7 w-7"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path d="M4 4h16v16H4z" />
+      <path d="M8 12h8M12 8v8" />
+    </svg>
+  );
+  const CoatingIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-7 w-7"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path d="M12 2v20" />
+      <path d="M5 7h14M5 12h14M5 17h14" />
+    </svg>
+  );
+
+  const Feature = ({ icon, label }) => (
+    <div className="group flex flex-col items-center text-center cursor-pointer transition-all">
+      <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-sky-100 text-sky-700 shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+        {icon}
+      </div>
+      <p className="mt-2 text-sm font-semibold text-slate-800">{label}</p>
+    </div>
+  );
+
   return (
     <section id="hero" className="relative">
       {/* Top full-viewport image slider — height = viewport minus navbar */}
       <div
-        className="w-full overflow-hidden h-[calc(100vh-var(--nav-height))]"
+        className="w-full overflow-hidden h-auto md:h-[calc(100vh-var(--nav-height))]"
         style={{ "--nav-height": `${NAV_HEIGHT}px` }}
       >
         <Swiper
@@ -64,12 +132,16 @@ export default function Hero() {
         >
           {heroImages.map((src, idx) => (
             <SwiperSlide key={idx}>
-              <div className="relative h-full w-full">
+              {/* make slide a flex container so object-contain images center nicely */}
+              <div className="relative h-full w-full flex items-center justify-center">
                 <img
                   src={src}
                   alt={`hero-${idx}`}
                   loading="lazy"
-                  className="h-full w-full object-cover"
+                  /* Key change: use object-cover on small screens, object-contain on md+.
+                     Also limit max-height on md+ so the image fits the viewport minus navbar. */
+                  className="w-full h-full object-cover md:object-contain md:max-h-[calc(100vh-var(--nav-height))]"
+                  style={{ "--nav-height": `${NAV_HEIGHT}px` }}
                 />
                 <div className="absolute inset-0 bg-linear-to-tr from-sky-900/55 via-sky-700/25 to-transparent mix-blend-multiply" />
               </div>
@@ -77,12 +149,10 @@ export default function Hero() {
           ))}
         </Swiper>
 
-        {/* Optional small top-left label */}
         <div className="absolute top-6 left-6 z-20 rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold text-sky-800 shadow-sm">
           Bisbee Technology
         </div>
 
-        {/* Scroll hint (uses scrollToContent to offset the navbar) */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
           <a
             href="#hero-content"
@@ -113,113 +183,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Feature Highlights */}
-      <div className="bg-white border-t border-b border-slate-200 py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
-            {/* 1. Durability */}
-            <div className="group flex flex-col items-center text-center transition-all cursor-pointer">
-              <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-sky-100 text-sky-700 shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-7 w-7"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z" />
-                </svg>
-              </div>
-              <p className="mt-3 text-sm font-semibold text-slate-800">
-                Durability
-              </p>
-            </div>
-
-            {/* 2. Exterior Metal Skin */}
-            <div className="group flex flex-col items-center text-center transition-all cursor-pointer">
-              <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-sky-100 text-sky-700 shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-7 w-7"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M3 9h18M9 21V9" />
-                </svg>
-              </div>
-              <p className="mt-3 text-sm font-semibold text-slate-800">
-                Exterior Metal Skin
-              </p>
-            </div>
-
-            {/* 3. Interior Metal Skin */}
-            <div className="group flex flex-col items-center text-center transition-all cursor-pointer">
-              <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-sky-100 text-sky-700 shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-7 w-7"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M4 6h16v12H4z" />
-                  <path d="M8 6v12M16 6v12" />
-                </svg>
-              </div>
-              <p className="mt-3 text-sm font-semibold text-slate-800">
-                Interior Metal Skin
-              </p>
-            </div>
-
-            {/* 4. Airtight System */}
-            <div className="group flex flex-col items-center text-center transition-all cursor-pointer">
-              <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-sky-100 text-sky-700 shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-7 w-7"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M4 4h16v16H4z" />
-                  <path d="M8 12h8M12 8v8" />
-                </svg>
-              </div>
-              <p className="mt-3 text-sm font-semibold text-slate-800">
-                Airtight System
-              </p>
-            </div>
-
-            {/* 5. Coatings Superiority */}
-            <div className="group flex flex-col items-center text-center transition-all cursor-pointer">
-              <div className="h-14 w-14 flex items-center justify-center rounded-2xl bg-sky-100 text-sky-700 shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-7 w-7"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2v20" />
-                  <path d="M5 7h14M5 12h14M5 17h14" />
-                </svg>
-              </div>
-              <p className="mt-3 text-sm font-semibold text-slate-800">
-                Coatings Superiority
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Content section (below the full-screen image) */}
+      {/* ...the rest of your content section is unchanged (kept as you had it) */}
       <div
         id="hero-content"
         ref={contentRef}
@@ -229,8 +193,8 @@ export default function Hero() {
             : "opacity-0 translate-y-6"
         } bg-sky-50 border-t border-slate-200`}
       >
+        {/* ...rest omitted for brevity - keep your original content */}
         <div className="flex flex-col gap-10 md:flex-row md:items-start">
-          {/* LEFT: TEXT CONTENT */}
           <div className="flex-1 space-y-6">
             <p className="inline-flex rounded-full border border-sky-100 bg-white px-3 py-1 text-xs font-medium text-sky-700 shadow-sm">
               Industrial Insulated Panel Solutions • PU / PIR Sandwich Panels
@@ -265,7 +229,6 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Desktop small stats */}
             <div className="hidden md:grid grid-cols-3 gap-4 pt-4 text-xs">
               <div>
                 <p className="text-slate-500">Technology</p>
@@ -283,6 +246,37 @@ export default function Hero() {
                   Consistent Quality
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Feature Highlights (unchanged) */}
+        <div className="py-12">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="sm:hidden relative w-full h-64">
+              <div className="absolute top-0 left-0">
+                <Feature icon={<ShieldIcon />} label="Durability" />
+              </div>
+              <div className="absolute top-0 right-0">
+                <Feature icon={<ExteriorIcon />} label="Exterior Metal Skin" />
+              </div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <Feature icon={<InteriorIcon />} label="Interior Metal Skin" />
+              </div>
+              <div className="absolute bottom-0 left-0">
+                <Feature icon={<AirtightIcon />} label="Airtight System" />
+              </div>
+              <div className="absolute bottom-0 right-0">
+                <Feature icon={<CoatingIcon />} label="Coatings Superiority" />
+              </div>
+            </div>
+
+            <div className="hidden sm:grid grid-cols-3 md:grid-cols-5 gap-8">
+              <Feature icon={<ShieldIcon />} label="Durability" />
+              <Feature icon={<ExteriorIcon />} label="Exterior Metal Skin" />
+              <Feature icon={<InteriorIcon />} label="Interior Metal Skin" />
+              <Feature icon={<AirtightIcon />} label="Airtight System" />
+              <Feature icon={<CoatingIcon />} label="Coatings Superiority" />
             </div>
           </div>
         </div>
