@@ -5,11 +5,13 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-import img1 from "../assets/hero-1.jpg";
-import img2 from "../assets/hero-2.jpg";
-import img3 from "../assets/hero-3.jpg";
+// import img1 from "../assets/hero-1.jpg";
+// import img2 from "../assets/hero-2.jpg";
+// import img3 from "../assets/hero-3.jpg";
+import img4 from "../assets/hero-4.jpg";
+import img5 from "../assets/hero-5.jpg";
 
-const heroImages = [img1, img2, img3];
+const heroImages = [img4, img5];
 
 export default function Hero() {
   // adjust this to match your Navbar height (px)
@@ -17,7 +19,6 @@ export default function Hero() {
 
   const contentRef = useRef(null);
   const [contentVisible, setContentVisible] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   // Reveal content when it enters viewport
   useEffect(() => {
