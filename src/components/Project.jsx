@@ -117,12 +117,6 @@ export default function Product() {
               <th className="px-4 py-2 bg-gray-100">Overall Width</th>
               <td className="px-4 py-2">1075mm</td>
             </tr>
-          </tbody>
-        </table>
-
-        {/* RIGHT TABLE */}
-        <table className="w-full border border-gray-300 text-left">
-          <tbody>
             <tr className="border-b border-gray-300">
               <th className="px-4 py-2 bg-gray-100">Length</th>
               <td className="px-4 py-2">
@@ -130,22 +124,61 @@ export default function Product() {
               </td>
             </tr>
             <tr className="border-b border-gray-300">
-              <th className="px-4 py-2 bg-gray-100">Available Thickness</th>
+              <th className="px-4 py-2 bg-gray-100">Thickness</th>
               <td className="px-4 py-2">
-                40, 50, 60, 80, 100, 120, 150, 200 mm
+                40, 50, 60, 80, 100, 120, 150, 200mm available
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* RIGHT TABLE */}
+        <table className="w-full border border-gray-300 text-left">
+          <tbody>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Infill Material</th>
+              <td className="px-4 py-2">
+                Infill as PUR/PIR & Rockwool Panels with tongue and groove
+                joints.
               </td>
             </tr>
             <tr className="border-b border-gray-300">
               <th className="px-4 py-2 bg-gray-100">Density</th>
-              <td className="px-4 py-2">PUR 40 ± 2 kg/m³, PIR 45 ± 2 kg/m³</td>
+              <td className="px-4 py-2">
+                PUR 40 ÷ 2kg/m3 and PIR 45 ÷ 2kg/m3 (As per the requirement)
+              </td>
+            </tr>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">
+                Outer & Inner Skin Sheet
+              </th>
+              <td className="px-4 py-2">
+                PPGI, PPGL, BGL, Stainless Steel, Aluminium, Craft Paper.
+              </td>
+            </tr>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Thickness</th>
+              <td className="px-4 py-2">(0.35mm TO 0.8mm)</td>
             </tr>
             <tr className="border-b border-gray-300">
               <th className="px-4 py-2 bg-gray-100">Sheet Profile</th>
               <td className="px-4 py-2">Baby Rib, Plain</td>
             </tr>
             <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Length</th>
+              <td className="px-4 py-2">
+                2 meters to 16 meters (also customized length available)
+              </td>
+            </tr>
+            <tr className="border-b border-gray-300">
               <th className="px-4 py-2 bg-gray-100">Covered Width</th>
-              <td className="px-4 py-2">1118mm</td>
+              <td className="px-4 py-2">1118 mm</td>
+            </tr>
+            <tr className="border-b border-gray-300">
+              <th className="px-4 py-2 bg-gray-100">Thickness</th>
+              <td className="px-4 py-2">
+                50, 60, 80, 100, 120, 150, 200 mm available
+              </td>
             </tr>
           </tbody>
         </table>

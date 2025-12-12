@@ -1,3 +1,5 @@
+import { FiPhone, FiMail, FiMapPin, FiGlobe, FiUser } from "react-icons/fi";
+
 function Contact() {
   return (
     <section
@@ -5,68 +7,143 @@ function Contact() {
       className="border-b border-slate-200 bg-linear-to-b from-sky-50 to-white"
     >
       <div className="mx-auto max-w-6xl px-4 py-12 space-y-8">
-        <h2 className="text-xl md:text-2xl font-semibold">Contact Us</h2>
+        <h2 className="text-xl md:text-2xl font-semibold text-slate-900">
+          Contact Us
+        </h2>
 
         <div className="grid gap-6 md:grid-cols-2 text-sm text-slate-600">
-          <div className="space-y-2">
-            <p className="text-slate-400 text-xs uppercase tracking-wide">
-              Reach Out
-            </p>
-            <p>
-              Phone: <span className="font-semibold">+91 96873 96878</span>
-            </p>
-            <p>
-              Email:{" "}
-              <a
-                href="mailto:bisbeetechnology@gmail.com"
-                className="text-emerald-300 underline-offset-2 hover:underline"
-              >
-                bisbeetechnology@gmail.com
-              </a>
-            </p>
-            <p>
-              Location:{" "}
-              <span className="font-semibold">Gujarat, India – 393002</span>
-            </p>
-            <p>
-              Website:{" "}
-              <span className="font-semibold">
-                bisbeetechnology.com · bisbeetechnology.in
-              </span>
-            </p>
+          {/* LEFT — INFO (Old Style With Icons Added) */}
+          <div className="space-y-5">
+            {/* Company */}
+            <div>
+              <p className="text-slate-400 text-xs uppercase tracking-wide">
+                Company
+              </p>
+              <p className="font-semibold text-slate-800 flex items-center gap-2">
+                <FiGlobe className="text-sky-600" />
+                BISBEE TECHNOLOGY INDIA PRIVATE LIMITED
+              </p>
+            </div>
+
+            {/* Factory Address */}
+            <div>
+              <p className="text-slate-400 text-xs uppercase tracking-wide">
+                Factory Address
+              </p>
+              <div className="flex items-start gap-2">
+                <FiMapPin className="text-sky-600 mt-1" />
+                <p>
+                  Khata No. 137, R.Survey No. 2, Nabipur Jhanor Road,
+                  <br />
+                  Bambusar, Bharuch, Gujarat –{" "}
+                  <span className="font-semibold">392210</span>
+                </p>
+              </div>
+            </div>
+
+            {/* Office Address */}
+            <div>
+              <p className="text-slate-400 text-xs uppercase tracking-wide">
+                Office Address
+              </p>
+              <div className="flex items-start gap-2">
+                <FiMapPin className="text-sky-600 mt-1" />
+                <p>
+                  Plot No. 3202/A/2/2, Shed No. S-109, MLS 3, GIDC,
+                  <br />
+                  Ankleshwar, Dist. Bharuch, Gujarat –{" "}
+                  <span className="font-semibold">393002</span>
+                </p>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div>
+              <p className="text-slate-400 text-xs uppercase tracking-wide">
+                Email
+              </p>
+              <div className="flex items-center gap-2 pt-1">
+                <FiMail className="text-sky-600" />
+                <a
+                  href="mailto:bisbeetechnology@gmail.com"
+                  className="text-emerald-600 underline-offset-2 hover:underline font-semibold"
+                >
+                  bisbeetechnology@gmail.com
+                </a>
+              </div>
+            </div>
+
+            {/* Website */}
+            <div>
+              <p className="text-slate-400 text-xs uppercase tracking-wide">
+                Website
+              </p>
+              <div className="flex items-center gap-2">
+                <FiGlobe className="text-sky-600" />
+                <p className="font-semibold text-slate-800">
+                  www.bisbeetechnology.com
+                </p>
+              </div>
+            </div>
+
+            {/* Phone */}
+            <div>
+              <p className="text-slate-400 text-xs uppercase tracking-wide">
+                Mobile
+              </p>
+              <div className="flex items-start gap-2">
+                <FiPhone className="text-sky-600 mt-1" />
+                <p className="font-semibold leading-relaxed">
+                  +91 80002 22208 <br />
+                  +91 89807 47426 <br />
+                  +91 96873 96878
+                </p>
+              </div>
+            </div>
           </div>
 
+          {/* RIGHT — OLD STYLE FORM + Icons */}
           <form className="space-y-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-            <p className="text-xs text-slate-400">
-              (Frontend demo form – can be wired to backend later)
-            </p>
+            {/* Name */}
             <div>
               <label className="text-xs text-slate-400">Name</label>
-              <input
-                type="text"
-                className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-50 px-3 py-2 text-xs outline-none focus:border-emerald-400"
-                placeholder="Your name"
-              />
+              <div className="relative">
+                <FiUser className="absolute left-3 top-3 text-slate-400" />
+                <input
+                  type="text"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 pl-10 px-3 py-2 text-xs outline-none focus:border-emerald-400"
+                  placeholder="Your name"
+                />
+              </div>
             </div>
+
+            {/* Email */}
             <div>
               <label className="text-xs text-slate-400">Email</label>
-              <input
-                type="email"
-                className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-50 px-3 py-2 text-xs outline-none focus:border-emerald-400"
-                placeholder="you@example.com"
-              />
+              <div className="relative">
+                <FiMail className="absolute left-3 top-3.5 text-slate-400" />
+                <input
+                  type="email"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 pl-10 px-3 py-2 text-xs outline-none focus:border-emerald-400"
+                  placeholder="you@example.com"
+                />
+              </div>
             </div>
+
+            {/* Message */}
             <div>
               <label className="text-xs text-slate-400">Message</label>
               <textarea
                 rows={3}
-                className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-50 px-3 py-2 text-xs outline-none focus:border-emerald-400"
+                className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-xs outline-none focus:border-emerald-400"
                 placeholder="Tell us about your project..."
-              />
+              ></textarea>
             </div>
+
+            {/* Button */}
             <button
               type="button"
-              className="w-full rounded-lg bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 hover:bg-emerald-400 transition-colors"
+              className="w-full rounded-lg bg-emerald-500 px-4 py-2 text-xs font-semibold text-white hover:bg-emerald-400 transition-colors"
             >
               Submit
             </button>
