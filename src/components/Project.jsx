@@ -171,7 +171,7 @@ export default function Product() {
             <tr className="border-b border-gray-300">
               <th className="px-4 py-2 bg-gray-100">Density</th>
               <td className="px-4 py-2">
-                PUR 40 ÷ 2kg/m3 and PIR 45 ÷ 2kg/m3 (As per the requirement)
+                PUR 40 ± 2 kg/m³ and PIR 40 ± 2 kg/m³ (As per the requirement)
               </td>
             </tr>
             <tr className="border-b border-gray-300">
