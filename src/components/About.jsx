@@ -9,25 +9,45 @@ function About() {
         {/* Full-width descriptive content */}
         <div className="space-y-6 text-sm md:text-base text-slate-600 leading-relaxed">
           <p>
-            Bisbee Technology India Pvt Ltd is an industrial technology startup
-            dedicated to transforming India's insulated construction and cold
-            chain infrastructure.
+            Bisbee Technology India Pvt Ltd is a pioneering manufacturing
+            startup focused on producing high-quality continuous{" "}
+            <span className="font-semibold">
+              PU/PIR & Rockwool sandwich panels
+            </span>{" "}
+            for India’s rapidly growing cold chain, prefab construction,
+            logistics, and industrial infrastructure sectors.
           </p>
 
           <p>
-            We manufacture high-quality PU and PIR sandwich panels using a{" "}
+            By establishing a{" "}
             <span className="font-semibold">
-              fully automated continuous production line
+              state-of-the-art fully automated continuous production line
             </span>
-            , ensuring uniform core density, strong bonding and superior thermal
-            performance.
+            , Bisbee aims to revolutionize the Indian insulated panel market
+            with products that deliver superior thermal performance, enhanced
+            fire safety, and consistent, reliable quality.
           </p>
 
           <p>
-            Our panels are tailored for applications in{" "}
+            Unlike traditional batch manufacturing processes, Bisbee’s advanced
+            continuous technology enables{" "}
             <span className="font-semibold">
-              cold storage, logistics, pharma, prefab construction, and
-              cleanrooms
+              high-speed, large-scale production
+            </span>{" "}
+            with uniform core density and exceptional bonding
+            strength—addressing long-standing challenges of inconsistent quality
+            and limited supply.
+          </p>
+
+          <p>
+            Our flexible manufacturing setup allows customization of{" "}
+            <span className="font-semibold">
+              panel thickness, lengths, surface finishes, and fire-rated
+              solutions
+            </span>
+            , serving a wide range of applications including{" "}
+            <span className="font-semibold">
+              cold storage, cleanrooms, modular buildings, and warehouses
             </span>
             .
           </p>
@@ -38,18 +58,21 @@ function About() {
           <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
             <h3 className="text-sm font-semibold text-emerald-600">Mission</h3>
             <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-              To deliver high-quality, customizable PU/PIR panels that enhance
-              energy efficiency, support sustainable growth, and meet diverse
-              industrial needs through innovation and precision.
+              To revolutionize India's insulated construction and cold chain
+              infrastructure by becoming the leading manufacturer of
+              world-class, energy-efficient, and customizable sandwich panels
+              produced through advanced continuous technology.
             </p>
           </div>
 
           <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
             <h3 className="text-sm font-semibold text-emerald-600">Vision</h3>
             <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-              To lead India’s insulated infrastructure revolution with
-              world-class, energy-efficient sandwich panels manufactured using
-              advanced continuous production technology.
+              To enhance energy efficiency and construction quality across
+              India, Bisbee Technology India Pvt Ltd combines advanced
+              manufacturing technology, customercentric solutions, and scalable
+              capacity to meet the country's growing demand for modern,
+              sustainable building materials.
             </p>
           </div>
         </div>

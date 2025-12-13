@@ -236,8 +236,8 @@ export default function Hero() {
 
             <h1 className="text-3xl md:text-4xl font-semibold leading-tight text-slate-900">
               Precision engineered{" "}
-              <span className="text-sky-700">PU / PIR sandwich panels</span> for
-              energy-efficient infrastructure.
+              <span className="text-sky-700">PU / PIR sandwich puf panels</span>{" "}
+              for energy-efficient infrastructure.
             </h1>
 
             <p className="text-sm md:text-base text-slate-600 max-w-xl">
