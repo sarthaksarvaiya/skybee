@@ -180,6 +180,17 @@ export default function Hero() {
               BISBEE TECHNOLOGY INDIA PRIVATE LIMITED
             </p>
           </div>
+
+          <div
+            className="
+            absolute inset-0 flex items-end justify-center pb-6  /* Mobile: bottom center */
+            md:inset-auto md:bottom-2 md:left-1/2 md:-translate-x-1/2 md:block md:pb-0  /* Desktop: bottom */
+            z-30 text-center px-4 bg-black/30"
+          >
+            <p className="text-white text-xs md:text-sm font-medium tracking-[0.15em] drop-shadow-lg">
+              An ISO 9001:2015 Certified Company
+            </p>
+          </div>
         </Swiper>
 
         <div className="absolute top-6 left-6 z-20 rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold text-sky-800 shadow-sm">
