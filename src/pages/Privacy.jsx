@@ -73,7 +73,7 @@ function Privacy() {
       <h2 className="text-lg font-semibold mt-6 mb-2">7. Contact Us</h2>
       <p>
         For any privacy-related questions: <br />
-        <strong>Email:</strong> bisbeetechnology@gmail.com <br />
+        <strong>Email:</strong> info@skybeepufpanel.com <br />
         <strong>Phone:</strong> +91 96873 96878
       </p>
 

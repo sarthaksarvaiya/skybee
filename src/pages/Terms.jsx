@@ -67,7 +67,7 @@ function Terms() {
       <h2 className="text-lg font-semibold mt-6 mb-2">8. Contact Us</h2>
       <p>
         For queries related to these Terms: <br />
-        <strong>Email:</strong> bisbeetechnology@gmail.com <br />
+        <strong>Email:</strong> info@skybeepufpanel.com <br />
         <strong>Phone:</strong> +91 96873 96878
       </p>
 
