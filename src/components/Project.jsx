@@ -11,6 +11,23 @@ import img3 from "../assets/product-3.jpg";
 import img4 from "../assets/product-4.jpg";
 
 export default function Product() {
+  const productsLeft = [
+    { img: img1, name: "Puf panel" },
+    { img: img2, name: "Sandwich puf panel" },
+  ];
+
+  const productsRight = [
+    { img: img3, name: "Wall panel" },
+    { img: img4, name: "Roof panel" },
+  ];
+
+  const mobileProducts = [
+    { img: img1, name: "Puf panel" },
+    { img: img2, name: "Sandwich puf panel" },
+    { img: img3, name: "Wall panel" },
+    { img: img4, name: "Roof panel" },
+  ];
+
   return (
     <section id="product" className="w-full">
       {/* 📱 MOBILE – single swiper */}
@@ -23,14 +40,17 @@ export default function Product() {
           className="w-full"
           style={{ height: "60vh" }}
         >
-          {[img1, img2, img3, img4].map((img, i) => (
+          {mobileProducts.map((item, i) => (
             <SwiperSlide key={i}>
-              <div className="w-full h-full flex items-center justify-center">
+              <div className="w-full h-full flex flex-col items-center justify-center">
                 <img
-                  src={img}
-                  alt="slide"
-                  className="max-w-full max-h-full object-contain p-4"
+                  src={item.img}
+                  alt="product"
+                  className="w-full max-h-[65%] object-contain p-4"
                 />
+                <p className="mt-4 text-lg font-semibold text-gray-800">
+                  {item.name}
+                </p>
               </div>
             </SwiperSlide>
           ))}
@@ -49,14 +69,17 @@ export default function Product() {
             className="w-full h-full rounded-xl overflow-hidden shadow-lg bg-white"
             style={{ height: "70vh" }}
           >
-            {[img1, img2].map((img, i) => (
+            {productsLeft.map((item, i) => (
               <SwiperSlide key={i}>
-                <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full h-full flex flex-col items-center justify-center">
                   <img
-                    src={img}
+                    src={item.img}
                     alt="product"
-                    className="max-w-full max-h-full object-contain p-6"
+                    className="w-full max-h-[60%] object-contain p-6"
                   />
+                  <p className="mt-4 text-lg font-semibold text-gray-800">
+                    {item.name}
+                  </p>
                 </div>
               </SwiperSlide>
             ))}
@@ -73,14 +96,17 @@ export default function Product() {
             className="w-full h-full rounded-xl overflow-hidden shadow-lg bg-white"
             style={{ height: "70vh" }}
           >
-            {[img3, img4].map((img, i) => (
+            {productsRight.map((item, i) => (
               <SwiperSlide key={i}>
-                <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full h-full flex flex-col items-center justify-center">
                   <img
-                    src={img}
+                    src={item.img}
                     alt="product"
-                    className="max-w-full max-h-full object-contain p-6"
+                    className="w-full max-h-[60%] object-contain p-6"
                   />
+                  <p className="mt-4 text-lg font-semibold text-gray-800">
+                    {item.name}
+                  </p>
                 </div>
               </SwiperSlide>
             ))}

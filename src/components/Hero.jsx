@@ -148,14 +148,14 @@ export default function Hero() {
             </SwiperSlide>
           ))}
 
-          <div className="absolute inset-0 bg-black/30 z-20"></div>
+          {/* <div className="absolute inset-0 bg-black/30 z-20"></div> */}
 
           <div
             className="
             absolute inset-0 
             flex flex-col items-center justify-center  /* Mobile layout */
             md:block md:inset-auto md:bottom-40 md:left-1/2 md:-translate-x-1/2  /* Desktop layout */
-            z-30 text-center px-4"
+            z-30 text-center px-4  bg-black/30"
           >
             <h2 className="text-white text-lg md:text-3xl font-semibold tracking-wide drop-shadow-lg leading-snug">
               INDIA'S LARGEST MANUFACTURER OF
@@ -174,7 +174,7 @@ export default function Hero() {
             className="
             absolute inset-0 flex items-end justify-center pb-6  /* Mobile: bottom center */
             md:inset-auto md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:block md:pb-0  /* Desktop: bottom */
-            z-30 text-center px-4"
+            z-30 text-center px-4 bg-black/30"
           >
             <p className="text-sky-200 text-xs md:text-sm font-medium tracking-[0.15em] drop-shadow-lg">
               BISBEE TECHNOLOGY INDIA PRIVATE LIMITED
@@ -249,7 +249,7 @@ export default function Hero() {
 
             <div className="flex flex-wrap gap-3">
               <a
-                href="#offerings"
+                href="#product"
                 className="rounded-lg bg-sky-700 px-4 py-2 text-sm font-medium text-white hover:bg-sky-800 transition-colors shadow-sm"
               >
                 View Panel Solutions
