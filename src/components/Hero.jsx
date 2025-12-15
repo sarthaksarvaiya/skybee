@@ -155,7 +155,7 @@ export default function Hero() {
             absolute inset-0 
             flex flex-col items-center justify-center  /* Mobile layout */
             md:block md:inset-auto md:bottom-40 md:left-1/2 md:-translate-x-1/2  /* Desktop layout */
-            z-30 text-center px-4  bg-black/30"
+            z-30 text-center px-4 "
           >
             <h2 className="text-white text-lg md:text-3xl font-semibold tracking-wide drop-shadow-lg leading-snug">
               INDIA'S LEADING MANUFACTURER OF
@@ -172,21 +172,15 @@ export default function Hero() {
 
           <div
             className="
-            absolute inset-0 flex items-end justify-center pb-6  /* Mobile: bottom center */
-            md:inset-auto md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:block md:pb-0  /* Desktop: bottom */
-            z-30 text-center px-4 bg-black/30"
+              absolute inset-0 flex flex-col items-center justify-end gap-1 pb-6
+              md:inset-auto md:bottom-4 md:left-1/2 md:-translate-x-1/2
+              z-30 text-center px-4
+            "
           >
             <p className="text-sky-200 text-xs md:text-sm font-medium tracking-[0.15em] drop-shadow-lg">
               BISBEE TECHNOLOGY INDIA PRIVATE LIMITED
             </p>
-          </div>
 
-          <div
-            className="
-            absolute inset-0 flex items-end justify-center pb-6  /* Mobile: bottom center */
-            md:inset-auto md:bottom-2 md:left-1/2 md:-translate-x-1/2 md:block md:pb-0  /* Desktop: bottom */
-            z-30 text-center px-4 bg-black/30"
-          >
             <p className="text-white text-xs md:text-sm font-medium tracking-[0.15em] drop-shadow-lg">
               An ISO 9001:2015 Certified Company
             </p>

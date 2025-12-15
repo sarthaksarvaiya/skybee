@@ -9,24 +9,76 @@ import img1 from "../assets/product-1.jpg";
 import img2 from "../assets/product-2.jpg";
 import img3 from "../assets/product-3.jpg";
 import img4 from "../assets/product-4.jpg";
+import img5 from "../assets/product-5.jpg";
+import img6 from "../assets/product-6.jpg";
+import img7 from "../assets/product-7.jpg";
+import img8 from "../assets/product-8.jpg";
+import img9 from "../assets/product-9.jpg";
+import img10 from "../assets/product-10.jpg";
 
 export default function Product() {
-  const productsLeft = [
+  const allProducts = [
     { img: img1, name: "Puf panel" },
+    { img: img5 },
+    { img: img6 },
+    { img: img4, name: "Roof panel" },
+    { img: img7 },
+    { img: img8 },
     { img: img2, name: "Sandwich puf panel" },
+    { img: img9 },
+    { img: img10 },
+    { img: img3, name: "Wall panel" },
   ];
 
-  const productsRight = [
-    { img: img3, name: "Wall panel" },
-    { img: img4, name: "Roof panel" },
-  ];
+  const productsLeft = allProducts.slice(0, 5);
+  const productsRight = allProducts.slice(5, 10);
 
-  const mobileProducts = [
-    { img: img1, name: "Puf panel" },
-    { img: img2, name: "Sandwich puf panel" },
-    { img: img3, name: "Wall panel" },
-    { img: img4, name: "Roof panel" },
-  ];
+  function ProductSlide({ item, maxHeight }) {
+    return (
+      <div className="w-full h-full flex flex-col items-center justify-center">
+        <img
+          src={item.img}
+          alt={item.name || "product"}
+          className={`w-full ${maxHeight} object-contain p-6`}
+        />
+
+        {item.name && (
+          <p className="mt-4 text-lg font-semibold text-gray-800">
+            {item.name}
+          </p>
+        )}
+      </div>
+    );
+  }
+
+  // const productsLeft = [
+  //   { img: img1, name: "Puf panel" },
+  //   { img: img2, name: "Sandwich puf panel" },
+  //   { img: img5 },
+  //   { img: img6},
+  //   { img: img7},
+  // ];
+
+  // const productsRight = [
+  //   { img: img3, name: "Wall panel" },
+  //   { img: img4, name: "Roof panel" },
+  //   { img: img8},
+  //   { img: img9},
+  //   { img: img10},
+  // ];
+
+  // const mobileProducts = [
+  //   { img: img1, name: "Puf panel" },
+  //   { img: img2, name: "Sandwich puf panel" },
+  //   { img: img3, name: "Wall panel" },
+  //   { img: img4, name: "Roof panel" },
+  //   { img: img5 },
+  //   { img: img6 },
+  //   { img: img7 },
+  //   { img: img8 },
+  //   { img: img9 },
+  //   { img: img10 },
+  // ];
 
   return (
     <section id="product" className="w-full">
@@ -36,22 +88,12 @@ export default function Product() {
           modules={[Autoplay, Navigation]}
           loop
           autoplay={{ delay: 3000 }}
-          navigation={true}
-          className="w-full"
+          navigation
           style={{ height: "60vh" }}
         >
-          {mobileProducts.map((item, i) => (
+          {allProducts.map((item, i) => (
             <SwiperSlide key={i}>
-              <div className="w-full h-full flex flex-col items-center justify-center">
-                <img
-                  src={item.img}
-                  alt="product"
-                  className="w-full max-h-[65%] object-contain p-4"
-                />
-                <p className="mt-4 text-lg font-semibold text-gray-800">
-                  {item.name}
-                </p>
-              </div>
+              <ProductSlide item={item} maxHeight="max-h-[65%]" />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -65,22 +107,13 @@ export default function Product() {
             modules={[Autoplay, Navigation]}
             loop
             autoplay={{ delay: 3500 }}
-            navigation={true}
-            className="w-full h-full rounded-xl overflow-hidden shadow-lg bg-white"
+            navigation
             style={{ height: "70vh" }}
+            className="rounded-xl shadow-lg bg-white"
           >
             {productsLeft.map((item, i) => (
               <SwiperSlide key={i}>
-                <div className="w-full h-full flex flex-col items-center justify-center">
-                  <img
-                    src={item.img}
-                    alt="product"
-                    className="w-full max-h-[60%] object-contain p-6"
-                  />
-                  <p className="mt-4 text-lg font-semibold text-gray-800">
-                    {item.name}
-                  </p>
-                </div>
+                <ProductSlide item={item} maxHeight="max-h-[60%]" />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -92,22 +125,13 @@ export default function Product() {
             modules={[Autoplay, Navigation]}
             loop
             autoplay={{ delay: 3500 }}
-            navigation={true}
-            className="w-full h-full rounded-xl overflow-hidden shadow-lg bg-white"
+            navigation
             style={{ height: "70vh" }}
+            className="rounded-xl shadow-lg bg-white"
           >
             {productsRight.map((item, i) => (
               <SwiperSlide key={i}>
-                <div className="w-full h-full flex flex-col items-center justify-center">
-                  <img
-                    src={item.img}
-                    alt="product"
-                    className="w-full max-h-[60%] object-contain p-6"
-                  />
-                  <p className="mt-4 text-lg font-semibold text-gray-800">
-                    {item.name}
-                  </p>
-                </div>
+                <ProductSlide item={item} maxHeight="max-h-[60%]" />
               </SwiperSlide>
             ))}
           </Swiper>
