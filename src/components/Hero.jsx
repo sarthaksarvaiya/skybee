@@ -187,10 +187,6 @@ export default function Hero() {
           </div>
         </Swiper>
 
-        <div className="absolute top-6 left-6 z-20 rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold text-sky-800 shadow-sm">
-          Bisbee Technology
-        </div>
-
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
           <a
             href="#hero-content"

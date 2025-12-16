@@ -25,10 +25,10 @@ function Contact() {
               </p>
             </div>
 
-            {/* Factory Address */}
+            {/* Head office & Factory address */}
             <div>
               <p className="text-slate-400 text-xs uppercase tracking-wide">
-                Factory Address
+                Head office & Factory address
               </p>
               <div className="flex items-start gap-2">
                 <FiMapPin className="text-sky-600 mt-1" />
@@ -37,22 +37,6 @@ function Contact() {
                   <br />
                   Bambusar, Bharuch, Gujarat –{" "}
                   <span className="font-semibold">392210</span>
-                </p>
-              </div>
-            </div>
-
-            {/* Office Address */}
-            <div>
-              <p className="text-slate-400 text-xs uppercase tracking-wide">
-                Office Address
-              </p>
-              <div className="flex items-start gap-2">
-                <FiMapPin className="text-sky-600 mt-1" />
-                <p>
-                  Plot No. 3202/A/2/2, Shed No. S-109, MLS 3, GIDC,
-                  <br />
-                  Ankleshwar, Dist. Bharuch, Gujarat –{" "}
-                  <span className="font-semibold">393002</span>
                 </p>
               </div>
             </div>

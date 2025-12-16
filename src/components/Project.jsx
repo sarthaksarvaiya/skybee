@@ -51,35 +51,6 @@ export default function Product() {
     );
   }
 
-  // const productsLeft = [
-  //   { img: img1, name: "Puf panel" },
-  //   { img: img2, name: "Sandwich puf panel" },
-  //   { img: img5 },
-  //   { img: img6},
-  //   { img: img7},
-  // ];
-
-  // const productsRight = [
-  //   { img: img3, name: "Wall panel" },
-  //   { img: img4, name: "Roof panel" },
-  //   { img: img8},
-  //   { img: img9},
-  //   { img: img10},
-  // ];
-
-  // const mobileProducts = [
-  //   { img: img1, name: "Puf panel" },
-  //   { img: img2, name: "Sandwich puf panel" },
-  //   { img: img3, name: "Wall panel" },
-  //   { img: img4, name: "Roof panel" },
-  //   { img: img5 },
-  //   { img: img6 },
-  //   { img: img7 },
-  //   { img: img8 },
-  //   { img: img9 },
-  //   { img: img10 },
-  // ];
-
   return (
     <section id="product" className="w-full">
       {/* 📱 MOBILE – single swiper */}
@@ -157,7 +128,7 @@ export default function Product() {
             </tr>
             <tr className="border-b border-gray-300">
               <th className="px-4 py-2 bg-gray-100">Thickness</th>
-              <td className="px-4 py-2">0.30mm to 0.8mm</td>
+              <td className="px-4 py-2">0.30mm to 0.80mm</td>
             </tr>
             <tr className="border-b border-gray-300">
               <th className="px-4 py-2 bg-gray-100">Effective Width</th>
@@ -208,7 +179,7 @@ export default function Product() {
             </tr>
             <tr className="border-b border-gray-300">
               <th className="px-4 py-2 bg-gray-100">Thickness</th>
-              <td className="px-4 py-2">0.30mm TO 0.8mm</td>
+              <td className="px-4 py-2">0.30mm TO 0.80mm</td>
             </tr>
             <tr className="border-b border-gray-300">
               <th className="px-4 py-2 bg-gray-100">Sheet Profile</th>
