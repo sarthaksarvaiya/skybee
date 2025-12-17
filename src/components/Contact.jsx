@@ -1,6 +1,47 @@
+import { useState } from "react";
 import { FiPhone, FiMail, FiMapPin, FiGlobe, FiUser } from "react-icons/fi";
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null); // success | error
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus(null);
+
+    try {
+      const res = await fetch(
+        "https://skybee-backend.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!res.ok) throw new Error("Failed");
+
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -12,9 +53,8 @@ function Contact() {
         </h2>
 
         <div className="grid gap-6 md:grid-cols-2 text-sm text-slate-600">
-          {/* LEFT — INFO (Old Style With Icons Added) */}
+          {/* LEFT — INFO (UNCHANGED) */}
           <div className="space-y-3">
-            {/* Company */}
             <div>
               <p className="text-slate-400 text-xs uppercase tracking-wide">
                 Company
@@ -25,7 +65,6 @@ function Contact() {
               </p>
             </div>
 
-            {/* Head office & Factory address */}
             <div>
               <p className="text-slate-400 text-xs uppercase tracking-wide">
                 Head office & Factory address
@@ -41,7 +80,6 @@ function Contact() {
               </div>
             </div>
 
-            {/* Email */}
             <div>
               <p className="text-slate-400 text-xs uppercase tracking-wide">
                 Email
@@ -57,7 +95,6 @@ function Contact() {
               </div>
             </div>
 
-            {/* Website */}
             <div>
               <p className="text-slate-400 text-xs uppercase tracking-wide">
                 Website
@@ -70,20 +107,24 @@ function Contact() {
               </div>
             </div>
 
-            {/* Phone */}
             <div>
               <p className="text-slate-400 text-xs uppercase tracking-wide">
                 Mobile
               </p>
               <div className="flex items-start gap-2">
                 <FiPhone className="text-sky-600 mt-1" />
-                <p className="font-semibold leading-relaxed">+91 96873 96878</p>
+                <p className="font-semibold leading-relaxed">
+                  +91 96873 96878
+                </p>
               </div>
             </div>
           </div>
 
-          {/* RIGHT — OLD STYLE FORM + Icons */}
-          <form className="space-y-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          {/* RIGHT — CONNECTED FORM */}
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+          >
             {/* Name */}
             <div>
               <label className="text-xs text-slate-400">Name</label>
@@ -91,6 +132,10 @@ function Contact() {
                 <FiUser className="absolute left-3 top-3 text-slate-400" />
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                   className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 pl-10 px-3 py-1.5 text-xs outline-none focus:border-emerald-400"
                   placeholder="Your name"
                 />
@@ -104,11 +149,16 @@ function Contact() {
                 <FiMail className="absolute left-3 top-3.5 text-slate-400" />
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                   className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 pl-10 px-3 py-1.5 text-xs outline-none focus:border-emerald-400"
                   placeholder="you@example.com"
                 />
               </div>
             </div>
+
             {/* Phone */}
             <div>
               <label className="text-xs text-slate-400">Phone</label>
@@ -116,6 +166,9 @@ function Contact() {
                 <FiPhone className="absolute left-3 top-3 text-slate-400" />
                 <input
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 pl-10 px-3 py-1.5 text-xs outline-none focus:border-emerald-400"
                   placeholder="+91 98765 43210"
                 />
@@ -126,18 +179,35 @@ function Contact() {
             <div>
               <label className="text-xs text-slate-400">Message</label>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
                 rows={3}
                 className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-1.5 text-xs outline-none focus:border-emerald-400"
                 placeholder="Tell us about your project..."
               ></textarea>
             </div>
 
+            {/* Status Message */}
+            {status === "success" && (
+              <p className="text-xs text-emerald-600 font-semibold">
+                ✅ Message sent successfully
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-xs text-red-500 font-semibold">
+                ❌ Failed to send message
+              </p>
+            )}
+
             {/* Button */}
             <button
-              type="button"
-              className="w-full rounded-lg bg-emerald-500 px-4 py-2 text-xs font-semibold text-white hover:bg-emerald-400 transition-colors"
+              type="submit"
+              disabled={loading}
+              className="w-full rounded-lg bg-emerald-500 px-4 py-2 text-xs font-semibold text-white hover:bg-emerald-400 disabled:opacity-50 transition-colors"
             >
-              Submit
+              {loading ? "Sending..." : "Submit"}
             </button>
           </form>
         </div>
