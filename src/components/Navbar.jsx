@@ -8,6 +8,7 @@ function Navbar() {
     { href: "/#hero", label: "Home" },
     { href: "/#about", label: "About" },
     { href: "/#product", label: "products" },
+    { href: "/#applications", label: "Application" },
     { href: "/#contact", label: "Contact" },
   ];
 

@@ -25,9 +25,9 @@ function Applications() {
     >
       <div className="mx-auto max-w-6xl px-4 space-y-10">
         {/* Heading */}
-        {/* <h2 className="text-xl md:text-2xl font-semibold text-slate-900">
-          Applications
-        </h2> */}
+        <h2 className="text-xl md:text-2xl font-semibold text-slate-900">
+          Application of PU/PIR & Rockwool Panels
+        </h2>
 
         {/* Image Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
