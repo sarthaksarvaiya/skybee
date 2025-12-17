@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { FiPhone, FiMail, FiMapPin, FiGlobe, FiUser } from "react-icons/fi";
 
 function Contact() {
@@ -10,7 +11,6 @@ function Contact() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState(null); // success | error
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,8 +18,9 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
+
     setLoading(true);
-    setStatus(null);
 
     try {
       const res = await fetch(
@@ -33,10 +34,10 @@ function Contact() {
 
       if (!res.ok) throw new Error("Failed");
 
-      setStatus("success");
+      toast.success("Message sent successfully!");
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
-      setStatus("error");
+      toast.error("Failed to send message. Try again.");
     } finally {
       setLoading(false);
     }
@@ -120,7 +121,7 @@ function Contact() {
             </div>
           </div>
 
-          {/* RIGHT — CONNECTED FORM */}
+          {/* RIGHT — FORM */}
           <form
             onSubmit={handleSubmit}
             className="space-y-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
@@ -137,7 +138,6 @@ function Contact() {
                   onChange={handleChange}
                   required
                   className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 pl-10 px-3 py-1.5 text-xs outline-none focus:border-emerald-400"
-                  placeholder="Your name"
                 />
               </div>
             </div>
@@ -154,7 +154,6 @@ function Contact() {
                   onChange={handleChange}
                   required
                   className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 pl-10 px-3 py-1.5 text-xs outline-none focus:border-emerald-400"
-                  placeholder="you@example.com"
                 />
               </div>
             </div>
@@ -170,7 +169,6 @@ function Contact() {
                   value={formData.phone}
                   onChange={handleChange}
                   className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 pl-10 px-3 py-1.5 text-xs outline-none focus:border-emerald-400"
-                  placeholder="+91 98765 43210"
                 />
               </div>
             </div>
@@ -185,21 +183,8 @@ function Contact() {
                 required
                 rows={3}
                 className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-1.5 text-xs outline-none focus:border-emerald-400"
-                placeholder="Tell us about your project..."
               ></textarea>
             </div>
-
-            {/* Status Message */}
-            {status === "success" && (
-              <p className="text-xs text-emerald-600 font-semibold">
-                ✅ Message sent successfully
-              </p>
-            )}
-            {status === "error" && (
-              <p className="text-xs text-red-500 font-semibold">
-                ❌ Failed to send message
-              </p>
-            )}
 
             {/* Button */}
             <button
